@@ -23,12 +23,11 @@ WHERE emp_no IN (
 # Find all the current department managers that are female.
 SELECT first_name, last_name
 FROM employees
-WHERE emp_no IN (
+WHERE gender = 'F' AND emp_no IN (
     SELECT emp_no
     FROM dept_manager
     WHERE to_date LIKE '9999%'
-    )
-AND gender = 'F';
+    );
 
 # Find all the department names that currently have female managers.
 SELECT dept_name
