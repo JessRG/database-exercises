@@ -28,11 +28,11 @@ WHERE a.id IN (
     );
 
 # For a given user, show all the ads they have posted.
-SELECT a.description
-FROM ads AS a
-WHERE a.id IN (
+SELECT description
+FROM ads
+WHERE id IN (
     SELECT adID
-    FROM users_ads ua
-    JOIN users u ON ua.userID = u.id
+    FROM users_ads AS ua
+    JOIN users AS u ON ua.userID = u.id
     WHERE u.email = 'jon@example.com'
     );
